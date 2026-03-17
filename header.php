@@ -26,7 +26,7 @@
                     <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Profile</a>
+                    <a class="nav-link text-white" href="profile.php">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="#">Login</a>

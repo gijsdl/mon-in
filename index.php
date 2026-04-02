@@ -1,12 +1,9 @@
 <?php
 include 'db.php';
 global $db;
-$query = $db->prepare('SELECT p.content, p.created_at, u.id AS user_id, u.name, u.avatar, u.headline, likes.like_count FROM posts p LEFT JOIN users u ON u.id = p.user_id LEFT JOIN (SELECT post_id, COUNT(*) as like_count FROM likes GROUP BY post_id) AS likes ON likes.post_id = p.id');
+$query = $db->prepare('SELECT p.content, p.created_at, u.id AS user_id, u.name, u.avatar, u.headline, likes.like_count FROM posts p LEFT JOIN users u ON u.id = p.user_id LEFT JOIN (SELECT post_id, COUNT(*) as like_count FROM likes GROUP BY post_id) AS likes ON likes.post_id = p.id ORDER BY p.created_at DESC');
 $query->execute();
 $posts = $query->fetchAll(PDO::FETCH_ASSOC);
-//echo "<pre>";
-//var_dump($posts);
-//echo "</pre>";
 include "header.php";
 ?>
 <div class="container mb-5">
